@@ -12,8 +12,13 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class Refezione {
+	private static String filename;
 	public static void main(String...strings) throws EncryptedDocumentException, InvalidFormatException, IOException {
-		Workbook wb = WorkbookFactory.create(new File("C:\\input\\input.xlsx"));
+		if(strings.length == 0)
+			filename = "C:\\input\\input.xlsx";
+		else
+			filename = strings[0];
+		Workbook wb = WorkbookFactory.create(new File(filename));
 		Sheet sh = wb.getSheetAt(0);
 		
 		ArrayList<DayLine> list = new ArrayList<>();
