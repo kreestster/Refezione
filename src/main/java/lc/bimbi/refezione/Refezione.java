@@ -3,6 +3,7 @@ package lc.bimbi.refezione;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.poi.EncryptedDocumentException;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -12,6 +13,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class Refezione {
+	
 	public static void main(String... strings) throws EncryptedDocumentException, InvalidFormatException, IOException {
 		Workbook wb = WorkbookFactory.create(new File("C:\\input\\input.xlsx"));
 		Sheet sh = wb.getSheetAt(0);
@@ -23,7 +25,7 @@ public class Refezione {
 			list.add(d);
 		}
 		//caricamento dataset
-		ArrayList<DayBalance> bal = new ArrayList<>();
+		List<DayBalance> bal;
 		bal = DayBalance.calculateFromList(list);
 		//fine creazione e caricamento dataset
 		

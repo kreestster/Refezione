@@ -16,8 +16,14 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 //.xls HSSFWorkbook, or a .xlsx XSSFWorkbook
 public class ReadExcel {
 	
+	
 	private static final int INDEX_DATA = 0;
 	private static final int INDEX_IMPORTO = 4;
+	
+	private ReadExcel(){
+		
+	}
+
 	public static void main(String...strings) throws EncryptedDocumentException, InvalidFormatException, IOException {
 		Workbook wb = WorkbookFactory.create(new File("C:\\input\\input.xlsx"));
 		Sheet sh = wb.getSheetAt(0);

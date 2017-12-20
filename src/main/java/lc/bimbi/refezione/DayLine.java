@@ -18,10 +18,15 @@ public class DayLine implements Serializable {
 	private static final int INDEX_NUMERO_PASTI = 3;
 	private static final int INDEX_IMPORTO = 4;
 	
-	private LocalDate dataOperazione;
+	private transient LocalDate dataOperazione;
 	private String tipoOperazione;
 	private int numeroPasti;
 	private float importo;
+	
+	private DayLine() {
+		
+	}
+	
 	
 	public static DayLine createDayLine(Row r) {
 		try {
@@ -44,10 +49,7 @@ public class DayLine implements Serializable {
 		return new DayLine(d, type, num, imp);
 	}
 	
-	private DayLine() {
-		
-	}
-	
+
 	private DayLine(LocalDate d, String type, int num, float imp) {
 		this.dataOperazione = d;
 		this.tipoOperazione = type;
